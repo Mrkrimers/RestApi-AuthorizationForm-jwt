@@ -1,0 +1,34 @@
+.main {
+    h1 {
+        color: #12141A;
+        font: 500 23px Inter;
+        font-style: normal;
+        line-height: normal;
+    }
+
+    p {
+        color: #606778;
+        font: 500 14px Inter;
+        font-style: normal;
+        line-height: 20px;
+    }
+
+    .inp_wrapper {
+        display: flex;
+        gap: 10px;
+    }
+
+    .reg_wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    input {
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid #CAD0DB;
+        background: #FFF;
+        width: 100%;
+    }
+}

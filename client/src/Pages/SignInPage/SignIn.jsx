@@ -3,20 +3,30 @@ import Header from "../../components/Header/Header";
 import Footer from '../../components/Footer/Footer';
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 function SignIn() {
     const [value, setValue] = useState({
         email: '',
         password: ''
     })
+    const { logIn } = useAuth()
+
+    const navigate = useNavigate()
 
     const getValue = (e) => {
         setValue({ ...value, [e.target.name]: e.target.value })
     }
 
     async function authUser() {
-        const resp = await axios.post('http://localhost:3001/user/auth', value)
+        const resp = await axios.post('http://localhost:3001/user/auth', value, {
+            withCredentials: true
+        })
         console.log(resp);
+        logIn();
+
+        navigate('/home')
     }
 
     return (

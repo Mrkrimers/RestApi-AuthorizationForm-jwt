@@ -5,7 +5,6 @@ import { useState } from 'react';
 import axios from 'axios';
 
 function SignUp() {
-
     const [value, setValue] = useState({
         name: '',
         surname: '',
@@ -13,6 +12,7 @@ function SignUp() {
         password: ''
     })
 
+    
     const getValue = (e) => {
         setValue({ ...value, [e.target.name]: e.target.value })
     }

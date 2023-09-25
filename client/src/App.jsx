@@ -1,15 +1,14 @@
-import { Route, Routes } from 'react-router-dom'
-import SignIn from './Pages/SignInPage/SignIn'
-import SignUp from './Pages/SignUpPage/SignUp'
+import routesProvider from './RoutesProvider/routesProvider'
+import useAuth from './hooks/useAuth'
 
 function App() {
+  const { token } = useAuth()
+  const route = routesProvider(!!token)
+
 
   return (
     <>
-      <Routes>
-        <Route path='/' element={<SignUp />} />
-        <Route path='/auth' element={<SignIn />} />
-      </Routes>
+      {route}
     </>
   )
 }

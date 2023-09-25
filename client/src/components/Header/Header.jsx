@@ -2,6 +2,7 @@ import style from '../Header/style.module.scss'
 import { Link } from "react-router-dom";
 
 export default function Header() {
+
     return (
         <>
             <div className={style.wrapper}>

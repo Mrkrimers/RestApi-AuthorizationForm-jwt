@@ -1,14 +1,17 @@
 import routesProvider from './RoutesProvider/routesProvider'
+import MyContext from './context/MyContext'
 import useAuth from './hooks/useAuth'
 
 function App() {
-  const { token } = useAuth()
-  const route = routesProvider(!!token)
+  const data = useAuth()
+  const route = routesProvider(!!data.token)
 
 
   return (
     <>
-      {route}
+      <MyContext.Provider value={data}>
+        {route}
+      </MyContext.Provider>
     </>
   )
 }

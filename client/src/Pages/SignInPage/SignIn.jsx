@@ -1,19 +1,22 @@
 import style from '../SignInPage/style.module.scss'
 import Header from "../../components/Header/Header";
 import Footer from '../../components/Footer/Footer';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
+import MyContext from '../../context/MyContext';
+// import useAuth from '../../hooks/useAuth';
 
 function SignIn() {
     const [value, setValue] = useState({
         email: '',
         password: ''
     })
-    const { logIn } = useAuth()
+    // const { logIn } = useAuth()
 
-    const navigate = useNavigate()
+    const { logIn } = useContext(MyContext);
+
+    const navigate = useNavigate();
 
     const getValue = (e) => {
         setValue({ ...value, [e.target.name]: e.target.value })
